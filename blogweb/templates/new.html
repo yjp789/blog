@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <!-- bootstrap4 CSS CDN 부분 -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous">
+
+    <title>Document</title>
+</head>
+ <!-- bootstrap4 js관련 CDN 부분 -->
+ <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+ crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+ crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+ crossorigin="anonymous"></script>
+<body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container">
+                    <a class="navbar-brand" href="{% url 'home' %}">TaeWan Dev</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav ml-auto">
+                            <a class="nav-item nav-link active" href="{% url 'home' %}">Home</span></a>
+                            <a class="nav-item nav-link" href="{% url 'post' %}">Post</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+
+    <br>
+    <div class="center_post">
+        <div class="container post_con">
+            <form action="{% url 'create' %}", method="POST", enctype="multipart/form-data">
+                {% csrf_token %}
+                <h4 >제목: </h4>
+                <input type="text" name="title"class="post" placeholder="제목 쓰세요 ㅎㅎ">
+                <br>
+                <br>
+                <h4 class="post_body">본문: </h4>
+                <textarea style="border:solid gray 2px;background-color: rgb(214, 214, 214);
+                " cols=40 rows=10 name="body" placeholder="본문 쓰세영 ㅎㅎ"></textarea>
+                <br>
+                <br>
+                <input type="file" name="pic">
+                <input class="btn btn-dark" type="submit" value="제출하기">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+<style>
+    .center_post{
+        text-align: center;
+    }
+    body{
+        background-color: rgb(214, 214, 214);
+    }
+.post_con{
+    border: solid gray 2px;
+    display: inline-block;
+    width: auto;
+    text-align: left;
+    background-color: rgb(214, 214, 214);
+
+}
+.post{
+    background-color: rgb(214, 214, 214);
+
+    border: solid 2px gray;
+}
+
+
+
+</style>
